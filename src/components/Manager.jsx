@@ -10,6 +10,7 @@ import {
 } from "react-icons/fa";
 import { MdDelete, MdEdit } from "react-icons/md";
 import { RiEdit2Fill } from "react-icons/ri";
+import toast, { Toaster } from "react-hot-toast";
 
 const Manager = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -59,13 +60,33 @@ const Manager = () => {
           )
         );
         setEditingId(null);
+        toast.success("Password updated successfully!", {
+          style: {
+            background: "#fff",
+            color: "#333",
+            border: "1px solid #e2e8f0",
+            padding: "16px",
+            boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
+            borderRadius: "12px",
+          },
+        });
       } else {
         // Add new password
         const newPassword = {
           ...form,
-          id: Date.now(), // Simple ID generation
+          id: Date.now(),
         };
         setDataArray([...dataArray, newPassword]);
+        toast.success("Password added successfully!", {
+          style: {
+            background: "#fff",
+            color: "#333",
+            border: "1px solid #e2e8f0",
+            padding: "16px",
+            boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
+            borderRadius: "12px",
+          },
+        });
       }
       // Clear form
       setform({
@@ -88,6 +109,16 @@ const Manager = () => {
   const handleDelete = (id) => {
     if (window.confirm("Are you sure you want to delete this password?")) {
       setDataArray(dataArray.filter((item) => item.id !== id));
+      toast.success("Password deleted successfully!", {
+        style: {
+          background: "#fff",
+          color: "#333",
+          border: "1px solid #e2e8f0",
+          padding: "16px",
+          boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
+          borderRadius: "12px",
+        },
+      });
     }
   };
 
@@ -112,7 +143,7 @@ const Manager = () => {
   };
 
   const getWebsiteIcon = (website) => {
-    return <FaGlobe className="text-blue-600 text-lg" />;
+    return <FaGlobe className=" text-lg" />;
   };
 
   const truncateWebsite = (website) => {
@@ -125,6 +156,7 @@ const Manager = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 py-8 px-4">
+      <Toaster position="top-right" />
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
@@ -233,7 +265,7 @@ const Manager = () => {
             <div className="flex justify-center gap-4 pt-4">
               <button
                 type="submit"
-                className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-xl transition-all duration-200 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl"
+                className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-xl transition-all duration-200 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl cursor-pointer"
               >
                 {editingId !== null ? (
                   <MdEdit size={20} />
@@ -256,6 +288,7 @@ const Manager = () => {
         </div>
 
         {/* Passwords List Section */}
+
         <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200">
           <div className="flex items-center justify-between mb-8">
             <div className="flex items-center gap-3">
@@ -345,14 +378,14 @@ const Manager = () => {
                         <div className="flex items-center justify-center gap-2">
                           <button
                             onClick={() => handleEdit(item)}
-                            className="p-2 text-blue-600 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-all duration-200"
+                            className="p-2 text-slate-600 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-all duration-200 cursor-pointer"
                             title="Edit Password"
                           >
                             <RiEdit2Fill size={18} />
                           </button>
                           <button
                             onClick={() => handleDelete(item.id)}
-                            className="p-2 text-red-600 hover:text-red-700 hover:bg-red-50 rounded-lg transition-all duration-200"
+                            className="p-2 text-red-600 hover:text-red-700 hover:bg-red-50 rounded-lg transition-all duration-200 cursor-pointer"
                             title="Delete Password"
                           >
                             <MdDelete size={18} />
