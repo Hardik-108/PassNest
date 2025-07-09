@@ -1,5 +1,5 @@
 import React from "react";
-import { FaShieldAlt } from "react-icons/fa";
+import { FaGithub, FaShieldAlt } from "react-icons/fa";
 
 const Navbar = () => {
   return (
@@ -17,8 +17,9 @@ const Navbar = () => {
           <a
             target="_blank"
             href="https://github.com/Hardik-108/PassNest"
-            className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-xl shadow-lg transition-all duration-200 hover:shadow-xl"
+            className="bg-blue-600 flex gap-2 items-center hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-xl shadow-lg transition-all duration-200 hover:shadow-xl"
           >
+            <FaGithub className="text-xl" />
             Github
           </a>
         </div>

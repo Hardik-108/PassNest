@@ -168,7 +168,7 @@ const Manager = () => {
               Pass<span className="text-blue-600">Nest</span>
             </h1>
           </div>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg font-semibold text-gray-600 max-w-2xl mx-auto">
             Your secure password manager - Simple, Clean, Reliable
           </p>
         </div>

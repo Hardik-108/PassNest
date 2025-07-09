@@ -20,7 +20,7 @@ const Footer = () => {
             </a>
           </div>
 
-          <div className="text-gray-600 font-bold">
+          <div className="text-gray-600 font-semibold">
             Keep your passwords safe and organized with PassNest!
           </div>
 
