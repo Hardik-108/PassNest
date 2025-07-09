@@ -16,7 +16,7 @@ const Navbar = () => {
         <div className="flex gap-4 items-center">
           <a
             target="_blank"
-            href="https://github.com/hardik-108"
+            href="https://github.com/Hardik-108/PassNest"
             className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-xl shadow-lg transition-all duration-200 hover:shadow-xl"
           >
             Github
