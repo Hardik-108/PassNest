@@ -24,7 +24,7 @@ const Manager = () => {
     password: "",
   });
 
-  // Load data from localStorage on component mount
+  // Load data from localStorage
   useEffect(() => {
     const savedPasswords = localStorage.getItem("passwords");
     if (savedPasswords) {
@@ -39,7 +39,7 @@ const Manager = () => {
     setIsDataLoaded(true);
   }, []);
 
-  // Save data to localStorage whenever dataArray changes (but only after initial load)
+  // Save data to localStorage
   useEffect(() => {
     if (isDataLoaded) {
       localStorage.setItem("passwords", JSON.stringify(dataArray));
